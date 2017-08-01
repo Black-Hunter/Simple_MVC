@@ -7,12 +7,37 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+
+class MainPannel extends JPanel{
+	
+	
+	public MainPannel(){
+		
+		
+	}
+	
+	
+}
+
 
  class M {
 
 
-	String Text = "Hallo World";
+   private	String Text = "Hallo World";
 
+public String getText() {
+	return Text;
+}
+
+public void setText(String text) {
+	Text = text;
+}
+ 
+   
+   
+   
 }
 
  class V extends JFrame {
@@ -21,8 +46,24 @@ import javax.swing.JLabel;
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	JButton button;
-	JLabel jLabel;
+	private JButton button;
+	private JLabel jLabel;
+
+	public JButton getButton() {
+		return button;
+	}
+
+	public void setButton(JButton button) {
+		this.button = button;
+	}
+
+	public JLabel getjLabel() {
+		return jLabel;
+	}
+
+	public void setjLabel(JLabel jLabel) {
+		this.jLabel = jLabel;
+	}
 
 	V() {
 
@@ -54,7 +95,7 @@ class C implements ActionListener {
 		this.v = v;
 		this.m = m;
 		v.setVisible(true);
-		button = v.button;
+		button = v.getButton();
 		button.addActionListener(this);
 
 			
@@ -65,7 +106,7 @@ class C implements ActionListener {
 		if (e.getSource().equals(button)) {
 			System.out.println("Button 2 pressed");
 
-			v.jLabel.setText(m.Text);
+			v.getjLabel().setText(m.getText());
 			
 		}
 	
@@ -73,6 +114,10 @@ class C implements ActionListener {
 
 }
 class mainWindow extends JFrame implements ActionListener{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	JButton button;
 	
 	
@@ -83,7 +128,7 @@ class mainWindow extends JFrame implements ActionListener{
 
 		setSize(400, 400);
 		getContentPane().setBackground(Color.RED);
-		button = new JButton("Action");
+		button = new JButton("Next");
 		button.setBounds(20, 20, 100, 100);
 		button.addActionListener(this);
 		add(button);
@@ -115,6 +160,7 @@ public class Main {
 	public static void main(String[] args) {
 
 		 new mainWindow().setVisible(true);
+		 
 		
 	}
 
